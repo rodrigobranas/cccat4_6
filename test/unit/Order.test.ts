@@ -67,3 +67,13 @@ test("Deve criar um pedido com 3 itens com o cálculo do frete com a estratégia
 	const freight = order.getFreight();
 	expect(freight).toBe(50);
 });
+
+test("Deve criar um pedido com código", function () {
+	const cpf = "839.435.452-10";
+	const order = new Order(cpf, new Date(), new FixedFreightCalculator());
+	order.addItem(new Item(4, "Instrumentos Musicais", "Guitarra", 1000, 100, 30, 10, 3), 1); // 30
+	order.addItem(new Item(5, "Instrumentos Musicais", "Amplificador", 5000, 100, 50, 50, 20), 1);
+	order.addItem(new Item(6, "Acessórios", "Cabo", 30, 10, 10, 10, 0.9), 3);
+	const code = order.getCode();
+	expect(code).toBe("202100000001");
+});

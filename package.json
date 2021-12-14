@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && jest ./dist",
-	"coverage": "tsc && jest ./dist --coverage"
+    "test": "tsc && jest ./dist --forceExit",
+    "coverage": "tsc && jest ./dist --coverage"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
     "@types/jest": "^27.0.3",
     "@types/sinon": "^10.0.6",
     "jest": "^27.4.0",
+    "pg-promise": "^10.11.1",
     "sinon": "^12.0.1",
     "typescript": "^4.5.2"
   }
