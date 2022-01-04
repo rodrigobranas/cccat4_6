@@ -1,5 +1,7 @@
 import PlaceOrder from "../../src/application/usecase/place_order/PlaceOrder";
 import PgPromiseConnectionAdapter from "../../src/infra/database/PgPromiseConnectionAdapter";
+import DatabaseRepositoryFactory from "../../src/infra/factory/DatabaseRepositoryFactory";
+import MemoryRepositoryFactory from "../../src/infra/factory/MemoryRepositoryFactory";
 import CouponRepositoryDatabase from "../../src/infra/repository/database/CouponRepositoryDatabase";
 import ItemRepositoryDatabase from "../../src/infra/repository/database/ItemRepositoryDatabase";
 import OrderRepositoryDatabase from "../../src/infra/repository/database/OrderRepositoryDatabase";
@@ -9,10 +11,10 @@ let orderRepository: OrderRepositoryDatabase;
 
 beforeEach(function () {
 	const connection = PgPromiseConnectionAdapter.getInstance();
-	const itemRepository = new ItemRepositoryDatabase(connection);
 	orderRepository = new OrderRepositoryDatabase(connection);
-	const couponRepository = new CouponRepositoryDatabase(connection);
-	placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
+	const repositoryFactory = new DatabaseRepositoryFactory();
+	// const repositoryFactory = new MemoryRepositoryFactory();
+	placeOrder = new PlaceOrder(repositoryFactory);
 });
 
 test("Deve fazer um pedido", async function () {

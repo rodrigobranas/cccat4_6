@@ -75,5 +75,5 @@ test("Deve criar um pedido com código", function () {
 	order.addItem(new Item(5, "Instrumentos Musicais", "Amplificador", 5000, 100, 50, 50, 20), 1);
 	order.addItem(new Item(6, "Acessórios", "Cabo", 30, 10, 10, 10, 0.9), 3);
 	const code = order.getCode();
-	expect(code).toBe("202100000001");
+	expect(code).toBe("202200000001");
 });
