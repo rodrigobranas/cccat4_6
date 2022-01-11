@@ -12,6 +12,16 @@ export default class OrderRepositoryMemory implements OrderRepository {
 		this.orders.push(order);
 		return Promise.resolve();
 	}
+
+	async get(code: string): Promise<Order> {
+		const order = this.orders.find(order => order.getCode() === code);
+		if (!order) throw new Error("Order not found");
+		return order;
+	}
+
+	async findAll(): Promise<Order[]> {
+		return this.orders;
+	}
 	
 	count(): Promise<number> {
 		return Promise.resolve(this.orders.length);
