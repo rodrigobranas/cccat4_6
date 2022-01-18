@@ -1,9 +1,10 @@
-import GetOrder from "../../src/application/usecase/get_order/GetOrder";
-import GetOrders from "../../src/application/usecase/get_orders/GetOrders";
-import PlaceOrder from "../../src/application/usecase/place_order/PlaceOrder";
-import PgPromiseConnectionAdapter from "../../src/infra/database/PgPromiseConnectionAdapter";
-import DatabaseRepositoryFactory from "../../src/infra/factory/DatabaseRepositoryFactory";
-import OrderRepositoryDatabase from "../../src/infra/repository/database/OrderRepositoryDatabase";
+import GetOrder from "../../../src/application/usecase/get_order/GetOrder";
+import GetOrders from "../../../src/application/usecase/get_orders/GetOrders";
+import PlaceOrder from "../../../src/application/usecase/place_order/PlaceOrder";
+import Broker from "../../../src/infra/broker/Broker";
+import PgPromiseConnectionAdapter from "../../../src/infra/database/PgPromiseConnectionAdapter";
+import DatabaseRepositoryFactory from "../../../src/infra/factory/DatabaseRepositoryFactory";
+import OrderRepositoryDatabase from "../../../src/infra/repository/database/OrderRepositoryDatabase";
 
 let placeOrder: PlaceOrder;
 let getOrders: GetOrders;
@@ -13,7 +14,8 @@ beforeEach(function () {
 	const connection = PgPromiseConnectionAdapter.getInstance();
 	orderRepository = new OrderRepositoryDatabase(connection);
 	const repositoryFactory = new DatabaseRepositoryFactory();
-	placeOrder = new PlaceOrder(repositoryFactory);
+	const broker = new Broker();
+	placeOrder = new PlaceOrder(repositoryFactory, broker);
 	getOrders = new GetOrders(repositoryFactory);
 });
 

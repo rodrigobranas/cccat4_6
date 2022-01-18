@@ -1,6 +1,6 @@
-import ValidateCoupon from "../../src/application/usecase/validate_coupon/ValidateCoupon";
-import PgPromiseConnectionAdapter from "../../src/infra/database/PgPromiseConnectionAdapter";
-import CouponRepositoryDatabase from "../../src/infra/repository/database/CouponRepositoryDatabase";
+import ValidateCoupon from "../../../src/application/usecase/validate_coupon/ValidateCoupon";
+import PgPromiseConnectionAdapter from "../../../src/infra/database/PgPromiseConnectionAdapter";
+import CouponRepositoryDatabase from "../../../src/infra/repository/database/CouponRepositoryDatabase";
 
 test("Deve validar um cupom de desconto", async function () {
 	const connection = PgPromiseConnectionAdapter.getInstance();

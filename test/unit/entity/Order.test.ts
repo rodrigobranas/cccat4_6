@@ -1,8 +1,8 @@
-import Coupon from "../../src/domain/entity/Coupon";
-import DefaultFreightCalculator from "../../src/domain/entity/DefaultFreightCalculator";
-import FixedFreightCalculator from "../../src/domain/entity/FixedFreightCalculator";
-import Item from "../../src/domain/entity/Item";
-import Order from "../../src/domain/entity/Order";
+import Coupon from "../../../src/domain/entity/Coupon";
+import DefaultFreightCalculator from "../../../src/domain/entity/DefaultFreightCalculator";
+import FixedFreightCalculator from "../../../src/domain/entity/FixedFreightCalculator";
+import Item from "../../../src/domain/entity/Item";
+import Order from "../../../src/domain/entity/Order";
 
 test("Deve criar um pedido vazio com CPF válido", function () {
 	const cpf = "839.435.452-10";

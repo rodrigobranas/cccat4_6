@@ -1,4 +1,4 @@
-import OrderCode from "../../src/domain/entity/OrderCode"
+import OrderCode from "../../../src/domain/entity/OrderCode"
 
 test("Deve criar um código de pedido", function () {
 	const date = new Date("2020-10-01");

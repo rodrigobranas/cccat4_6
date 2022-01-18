@@ -1,5 +1,6 @@
 import GetOrders from "../../../src/application/query/get_orders/GetOrders";
 import PlaceOrder from "../../../src/application/usecase/place_order/PlaceOrder";
+import Broker from "../../../src/infra/broker/Broker";
 import OrderDAODatabase from "../../../src/infra/dao/OrderDAODatabase";
 import PgPromiseConnectionAdapter from "../../../src/infra/database/PgPromiseConnectionAdapter";
 import DatabaseRepositoryFactory from "../../../src/infra/factory/DatabaseRepositoryFactory";
@@ -14,7 +15,8 @@ beforeEach(function () {
 	orderRepository = new OrderRepositoryDatabase(connection);
 	const repositoryFactory = new DatabaseRepositoryFactory();
 	const orderDAO = new OrderDAODatabase(connection);
-	placeOrder = new PlaceOrder(repositoryFactory);
+	const broker = new Broker();
+	placeOrder = new PlaceOrder(repositoryFactory, broker);
 	getOrders = new GetOrders(orderDAO);
 });
 

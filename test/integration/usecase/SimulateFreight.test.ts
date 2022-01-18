@@ -1,8 +1,8 @@
-import SimulateFreight from "../../src/application/usecase/simulate_freight/SimulateFreight";
-import SimulateFreightInput from "../../src/application/usecase/simulate_freight/SimulateFreightInput";
-import DefaultFreightCalculator from "../../src/domain/entity/DefaultFreightCalculator";
-import PgPromiseConnectionAdapter from "../../src/infra/database/PgPromiseConnectionAdapter";
-import ItemRepositoryDatabase from "../../src/infra/repository/database/ItemRepositoryDatabase";
+import SimulateFreight from "../../../src/application/usecase/simulate_freight/SimulateFreight";
+import SimulateFreightInput from "../../../src/application/usecase/simulate_freight/SimulateFreightInput";
+import DefaultFreightCalculator from "../../../src/domain/entity/DefaultFreightCalculator";
+import PgPromiseConnectionAdapter from "../../../src/infra/database/PgPromiseConnectionAdapter";
+import ItemRepositoryDatabase from "../../../src/infra/repository/database/ItemRepositoryDatabase";
 
 test("Deve simular o frete dos itens", async function () {
 	const connection = PgPromiseConnectionAdapter.getInstance();
