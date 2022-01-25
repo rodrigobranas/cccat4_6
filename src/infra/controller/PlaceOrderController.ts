@@ -10,7 +10,7 @@ export default class PlaceOrderController {
 	async execute (params: any, body: any) {
 		const placeOrder = new PlaceOrder(this.repositoryFactory, this.broker);
 		const input = body;
-		input.date = new Date(input.date);
+		if (input.date) input.date = new Date(input.date);
 		return await placeOrder.execute(input);
 	}
 }

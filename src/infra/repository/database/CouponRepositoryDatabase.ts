@@ -10,6 +10,6 @@ export default class CouponRepositoryDatabase implements CouponRepository {
 	async findByCode(code: string): Promise<Coupon | undefined> {
 		const [couponData] = await this.connection.query("select * from ccca.coupon where code = $1", [code]);
 		if (!couponData) return;
-		return new Coupon(couponData.code, couponData.percentage, couponData.expire_date);
+		return new Coupon(couponData.code, parseFloat(couponData.percentage), couponData.expire_date);
 	}
 }

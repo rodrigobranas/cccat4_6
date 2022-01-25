@@ -6,6 +6,6 @@ test("Deve validar um cupom de desconto", async function () {
 	const connection = PgPromiseConnectionAdapter.getInstance();
 	const couponRepository = new CouponRepositoryDatabase(connection);
 	const validateCoupon = new ValidateCoupon(couponRepository);
-	const isValid = await validateCoupon.execute("VALE20");
-	expect(isValid).toBeTruthy();
+	const output = await validateCoupon.execute("VALE20");
+	expect(output.isValid).toBeTruthy();
 });
